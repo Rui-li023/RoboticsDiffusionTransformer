@@ -10,7 +10,7 @@ import numpy as np
 from tqdm import tqdm
 
 from data.hdf5_vla_dataset import HDF5VLADataset
-
+from data.hdf5_labutopia_dataset import HDF5LabutopiaDataset
 
 def process_hdf5_dataset(vla_dataset):
     EPS = 1e-8
@@ -78,7 +78,9 @@ if __name__ == "__main__":
                         help="Whether to skip the existing dataset statistics.")
     args = parser.parse_args()
     
-    vla_dataset = HDF5VLADataset()
+    vla_dataset = HDF5LabutopiaDataset(
+        h5_path="/home/ubuntu/Documents/LabSim/outputs/collect/2025.07.16/00.19.30_Level3_PourLiquid_Single_Material/dataset/episode_data.hdf5",
+    )
     dataset_name = vla_dataset.get_dataset_name()
     
     try:
